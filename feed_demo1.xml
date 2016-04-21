@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gallery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./galleryfeed.xsd">
+
+	<album>
+		<name>My first album</name>
+
+	</album>
+
+	<image>
+		<name/>
+		<timestamp>2004-04-12T13:20:00Z</timestamp>
+		<origin width="1024" height="768" url="http://xyz.jpg"/>
+		<thumbnail width="100" height="50" url="http://xyz.jpg"/>
+	</image>
+
+	<image>
+		<name/>
+		<timestamp>2004-04-12T13:20:00Z</timestamp>
+		<origin width="1024" height="768" url="http://xyz.jpg"/>
+		<thumbnail width="100" height="50" url="http://xyz.jpg"/>
+	</image>
+
+	<image>
+		<name/>
+		<timestamp>2004-04-12T13:20:00Z</timestamp>
+		<origin width="1024" height="768" url="http://xyz.jpg"/>
+		<thumbnail width="100" height="50" url="http://xyz.jpg"/>
+	</image>
+</gallery>

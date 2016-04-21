@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:element name="galleryfeed">
+		<xs:annotation>
+			<xs:documentation>Gallery Feed</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="image" type="image" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="album" type="album" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="image">
+		<xs:annotation>
+			<xs:documentation>Description of an image</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="origin" type="source"/>
+			<xs:element name="name"/>
+			<xs:element name="title" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="lang"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="lang"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="album" type="album" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="timestamp" type="xs:dateTimeStamp"/>
+			<xs:element name="thumbnail" type="source"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="album">
+		<xs:annotation>
+			<xs:documentation>Photo album</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="name"/>
+			<xs:element name="title"/>
+			<xs:element name="description" minOccurs="0"/>
+			<xs:element name="timestamp" type="xs:dateTimeStamp"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="source">
+		<xs:annotation>
+			<xs:documentation>Image source</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="width" type="xs:integer" use="required"/>
+		<xs:attribute name="height" type="xs:integer" use="required"/>
+		<xs:attribute name="url" type="xs:anyURI" use="required"/>
+	</xs:complexType>
+</xs:schema>
