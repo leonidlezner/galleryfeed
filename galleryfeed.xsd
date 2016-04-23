@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
-	<!-- Element's title -->
-	<xs:simpleType name="title">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="1"/>
-			<xs:whiteSpace value="collapse"/>
-		</xs:restriction>
-	</xs:simpleType>
+  <!-- Element's title -->
+  <xs:simpleType name="title">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:whiteSpace value="collapse"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-	<!-- Element's description -->
-	<xs:simpleType name="description">
-		<xs:restriction base="xs:string">
-			<xs:whiteSpace value="collapse"/>
-			<xs:minLength value="1"/>
-		</xs:restriction>
-	</xs:simpleType>
+  <!-- Element's description -->
+  <xs:simpleType name="description">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-	<xs:element name="gallery">
-		<xs:complexType>
-			<xs:sequence>
-				<!-- Defining the list of albums -->
-				<xs:element name="albums">
-					<xs:complexType>
-						<xs:sequence>
-								<!-- Definition of the album -->
-								<xs:element name="album" maxOccurs="unbounded">
-									<xs:complexType>
-										<xs:all>
-											<!-- Album's name -->
-											<xs:element name="name" type="xs:Name"/> <!-- End of name -->
-											<!-- Album's title -->
-											<xs:element name="title" type="title" /> <!-- End of title -->
-											<!-- Album's description -->
-											<xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
-											<!-- Album's timestamp -->
-											<xs:element name="timestamp" type="xs:dateTime" />
-											<!-- Images -->
-											<xs:element name="images">
-												<xs:complexType>
-													<xs:sequence>
-														<xs:element name="image">
-															<xs:complexType>
-																<xs:all>
-																	<!-- Image's name -->
-																	<xs:element name="name" type="xs:Name"/> <!-- End of name -->
-																	<!-- Images's title -->
-																	<xs:element name="title" type="title" /> <!-- End of title -->
-																	<!-- Images's description -->
-																	<xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
-																</xs:all>
-															</xs:complexType>
-														</xs:element>
-													</xs:sequence>
-												</xs:complexType>
-											</xs:element> <!-- End of images -->
-										</xs:all>
-									</xs:complexType>
-								</xs:element> <!-- End of album -->
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+  <xs:element name="gallery">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Defining the list of albums -->
+        <xs:element name="albums">
+          <xs:complexType>
+            <xs:sequence>
+                <!-- Definition of the album -->
+                <xs:element name="album" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:all>
+                      <!-- Album's name -->
+                      <xs:element name="name" type="xs:Name"/> <!-- End of name -->
+                      <!-- Album's title -->
+                      <xs:element name="title" type="title" /> <!-- End of title -->
+                      <!-- Album's description -->
+                      <xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
+                      <!-- Album's timestamp -->
+                      <xs:element name="timestamp" type="xs:dateTime" />
+                      <!-- Images -->
+                      <xs:element name="images">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="image">
+                              <xs:complexType>
+                                <xs:all>
+                                  <!-- Image's name -->
+                                  <xs:element name="name" type="xs:Name"/> <!-- End of name -->
+                                  <!-- Images's title -->
+                                  <xs:element name="title" type="title" /> <!-- End of title -->
+                                  <!-- Images's description -->
+                                  <xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
+                                </xs:all>
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element> <!-- End of images -->
+                    </xs:all>
+                  </xs:complexType>
+                </xs:element> <!-- End of album -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

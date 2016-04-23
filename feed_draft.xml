@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <gallery version="0.1">
-	<albums>
-		<!-- Idea: Some way of breaking the giant XML gallery in to multiple files?? -->
-		<album href="/album123/gallery.xml" />
+  <albums>
+    <!-- Idea: Some way of breaking the giant XML gallery in to multiple files?? -->
+    <album href="/album123/gallery.xml" />
 
-		<album>
-			<name>my_first_album</name>
-			<title>My first album</title>
-			<description>My first album description</description>
+    <album>
+      <name>my_first_album</name>
+      <title>My first album</title>
+      <description>My first album description</description>
 
-			<images>
+      <images>
 
-				<image>
-					<name></name>
-					<title></title>
-					<description></description>
-					<comments>
-						<comment></comment>
-						<comment></comment>
-					</comments>
-					<tags>
-						<tag></tag>
-						<tag></tag>
-						<tag></tag>
-					</tags>
-					<likes>0</likes>
-					<timestamp>2004-04-12T13:20:00Z</timestamp>
-					<origin width="1024" height="768">http://xyz.jpg</origin>
-					<thumbnail width="100" height="50">http://xyz_thumb.jpg</thumbnail>
-					<author>Max Mustermann</author>
-					<exif>
-						<aperture></aperture>
-						<iso></iso>
-						<exposure-mode></exposure-mode>
-						<focal-length></focal-length>
-						<white-balance></white-balance>
-					</exif>
-					<license href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain Dedication</license>
-					<location lat="" long="" />
-				</image>
+        <image>
+          <name></name>
+          <title></title>
+          <description></description>
+          <comments>
+            <comment></comment>
+            <comment></comment>
+          </comments>
+          <tags>
+            <tag></tag>
+            <tag></tag>
+            <tag></tag>
+          </tags>
+          <likes>0</likes>
+          <timestamp>2004-04-12T13:20:00Z</timestamp>
+          <origin width="1024" height="768">http://xyz.jpg</origin>
+          <thumbnail width="100" height="50">http://xyz_thumb.jpg</thumbnail>
+          <author>Max Mustermann</author>
+          <exif>
+            <aperture></aperture>
+            <iso></iso>
+            <exposure-mode></exposure-mode>
+            <focal-length></focal-length>
+            <white-balance></white-balance>
+          </exif>
+          <license href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain Dedication</license>
+          <location lat="" long="" />
+        </image>
 
-			</images>
-		</album>
-	</albums>
+      </images>
+    </album>
+  </albums>
 </gallery>
