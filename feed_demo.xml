@@ -5,6 +5,14 @@
 			<name>frist_album</name>
 			<description>The description of the first album</description>
 			<title>My first album</title>
+			<timestamp>1999-05-31T13:20:00-05:00</timestamp>
+			<images>
+				<image>
+					<name>first_image</name>
+					<title>First image</title>
+					<description>xy</description>
+				</image>
+			</images>
 		</album>
 	</albums>
 </gallery>
