@@ -6,6 +6,8 @@
       <description>The description of the first album</description>
       <title>My first album</title>
       <timestamp>1999-05-31T13:20:00-05:00</timestamp>
+      <license href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain Dedication</license>
+
       <images>
         <image>
           <name>first_image</name>
@@ -15,7 +17,14 @@
           <origin width="10" height="10">https://xyz.de/one.jpg</origin>
           <thumbnail width="10" height="10">http://xyz.de/one_thumb.jpg</thumbnail>
           <author>Leonid Lezner</author>
-          
+          <timestamp>1999-05-31T13:20:00-05:00</timestamp>
+          <license href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain Dedication</license>
+          <location lat="0.1" long="0.1">My nice place</location>
+          <tags>
+            <tag>photo</tag>
+            <tag>black and white</tag>
+            <tag>low light</tag>
+          </tags>
         </image>
       </images>
     </album>

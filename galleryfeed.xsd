@@ -42,16 +42,38 @@
   <xs:complexType name="imageResource">
     <xs:simpleContent>
       <xs:extension base="httpURI">
-        <xs:attribute name="width" type="xs:positiveInteger" />
-        <xs:attribute name="height" type="xs:positiveInteger" />
+        <xs:attribute name="width" type="xs:positiveInteger" use="required" />
+        <xs:attribute name="height" type="xs:positiveInteger" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="tags">
+    <xs:sequence>
+      <xs:element name="tag" type="mandatoryString" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Type for geo location -->
+  <xs:complexType name="geoLocation">
+    <xs:annotation>
+      <xs:documentation>Geo location contains longitude and latitude coordinates. Can contain an additional textual descripton of the location.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lat" type="xs:double" use="required" />
+        <xs:attribute name="long" type="xs:double" use="required" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
 
   <xs:complexType name="license">
+    <xs:annotation>
+      <xs:documentation>License contains the name of the license and also a link to the license text.</xs:documentation>
+    </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base="xs:string">
-        <xs:attribute name="href" type="httpURI" />
+      <xs:extension base="mandatoryString">
+        <xs:attribute name="href" type="httpURI" use="required" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -105,18 +127,24 @@
                                   <!-- Image's author -->
                                   <xs:element name="author" type="mandatoryString" minOccurs="0" />
                                   <!-- Image's license -->
-                                  <xs:element name="license" type="license" minOccurs="0" />
+                                  <xs:element name="license" minOccurs="0" type="license" />
                                   <!-- Image's timestamp -->
                                   <xs:element name="timestamp" type="xs:dateTime" />
+                                  <!-- Image's geo location -->
+                                  <xs:element name="location" minOccurs="0" type="geoLocation" />
+                                  <!-- Image's tags -->
+                                  <xs:element name="tags" minOccurs="0" type="tags" />
                                 </xs:all>
                               </xs:complexType>
                             </xs:element>
                           </xs:sequence>
                         </xs:complexType>
-                      </xs:element> <!-- End of images -->
+                      </xs:element>
+                      <!-- End of images -->
                     </xs:all>
                   </xs:complexType>
-                </xs:element> <!-- End of album -->
+                </xs:element>
+                <!-- End of album -->
             </xs:sequence>
           </xs:complexType>
         </xs:element>
