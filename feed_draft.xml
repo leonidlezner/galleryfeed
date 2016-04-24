@@ -13,9 +13,6 @@
       <images>
 
         <image>
-          <name></name>
-          <title></title>
-          <description></description>
           <comments>
             <comment></comment>
             <comment></comment>
@@ -25,11 +22,6 @@
             <tag></tag>
             <tag></tag>
           </tags>
-          <likes>0</likes>
-          <timestamp>2004-04-12T13:20:00Z</timestamp>
-          <origin width="1024" height="768">http://xyz.jpg</origin>
-          <thumbnail width="100" height="50">http://xyz_thumb.jpg</thumbnail>
-          <author>Max Mustermann</author>
           <exif>
             <aperture></aperture>
             <iso></iso>

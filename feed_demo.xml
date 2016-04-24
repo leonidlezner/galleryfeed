@@ -11,6 +11,11 @@
           <name>first_image</name>
           <title>First image</title>
           <description>xy</description>
+          <likes>0</likes>
+          <origin width="10" height="10">https://xyz.de/one.jpg</origin>
+          <thumbnail width="10" height="10">http://xyz.de/one_thumb.jpg</thumbnail>
+          <author>Leonid Lezner</author>
+          
         </image>
       </images>
     </album>

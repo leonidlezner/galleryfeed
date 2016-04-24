@@ -1,22 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
-  <!-- Element's title -->
-  <xs:simpleType name="title">
+  <!-- Not empty string -->
+  <xs:simpleType name="mandatoryString">
     <xs:restriction base="xs:string">
       <xs:minLength value="1"/>
       <xs:whiteSpace value="collapse"/>
     </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Element's title -->
+  <xs:simpleType name="title">
+    <xs:annotation>
+      <xs:documentation>Human readable title used for albums and images</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="mandatoryString" />
   </xs:simpleType>
 
   <!-- Element's description -->
   <xs:simpleType name="description">
-    <xs:restriction base="xs:string">
-      <xs:whiteSpace value="collapse"/>
-      <xs:minLength value="1"/>
+    <xs:restriction base="mandatoryString" />
+  </xs:simpleType>
+
+  <!-- Likes -->
+  <xs:simpleType name="likes">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
     </xs:restriction>
   </xs:simpleType>
 
+  <!-- URI -->
+  <xs:simpleType name="httpURI">
+    <xs:restriction base="xs:anyURI">
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="1"/>
+      <xs:pattern value="https?://.+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Type for an image link -->
+  <xs:complexType name="imageResource">
+    <xs:simpleContent>
+      <xs:extension base="httpURI">
+        <xs:attribute name="width" type="xs:positiveInteger" />
+        <xs:attribute name="height" type="xs:positiveInteger" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="license">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="href" type="httpURI" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Gallery -->
   <xs:element name="gallery">
     <xs:complexType>
       <xs:sequence>
@@ -36,6 +76,13 @@
                       <xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
                       <!-- Album's timestamp -->
                       <xs:element name="timestamp" type="xs:dateTime" />
+                      <!-- Album's author -->
+                      <xs:element name="author" type="mandatoryString" minOccurs="0" />
+                      <!-- Album's license -->
+                      <xs:element name="license" type="license" minOccurs="0" />
+                      <!-- Image path for the thumbnail -->
+                      <xs:element name="thumbnail" type="imageResource" minOccurs="0" />
+
                       <!-- Images -->
                       <xs:element name="images">
                         <xs:complexType>
@@ -44,11 +91,23 @@
                               <xs:complexType>
                                 <xs:all>
                                   <!-- Image's name -->
-                                  <xs:element name="name" type="xs:Name"/> <!-- End of name -->
+                                  <xs:element name="name" type="xs:Name" /> <!-- End of name -->
                                   <!-- Images's title -->
                                   <xs:element name="title" type="title" /> <!-- End of title -->
                                   <!-- Images's description -->
                                   <xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
+                                  <!-- Image's likes -->
+                                  <xs:element name="likes" type="likes" minOccurs="0" />
+                                  <!-- Full image path -->
+                                  <xs:element name="origin" type="imageResource" />
+                                  <!-- Image path for the thumbnail -->
+                                  <xs:element name="thumbnail" type="imageResource" />
+                                  <!-- Image's author -->
+                                  <xs:element name="author" type="mandatoryString" minOccurs="0" />
+                                  <!-- Image's license -->
+                                  <xs:element name="license" type="license" minOccurs="0" />
+                                  <!-- Image's timestamp -->
+                                  <xs:element name="timestamp" type="xs:dateTime" />
                                 </xs:all>
                               </xs:complexType>
                             </xs:element>
