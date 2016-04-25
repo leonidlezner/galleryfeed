@@ -25,8 +25,22 @@
             <tag>black and white</tag>
             <tag>low light</tag>
           </tags>
+          <comments>
+            <comment author="Max Mustermann" timestamp="1999-05-31T13:20:00-05:00">
+              <![CDATA[
+              Sampe comment
+              ]]>
+            </comment>
+            <comment author="Max Mustermann" timestamp="1999-05-31T13:20:00-05:00">xyz</comment>
+          </comments>
         </image>
       </images>
+    </album>
+
+    <album>
+      <name>second_album</name>
+      <timestamp>1999-05-31T13:20:00-05:00</timestamp>
+      <title>Second album</title>
     </album>
   </albums>
 </gallery>

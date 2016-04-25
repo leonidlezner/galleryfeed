@@ -54,10 +54,30 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="comments">
+    <xs:sequence>
+      <xs:element name="comment" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="mandatoryString">
+              <xs:attribute name="author" type="xs:string" use="required" />
+              <xs:attribute name="timestamp" type="xs:dateTime" use="required" />
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <!-- Type for geo location -->
   <xs:complexType name="geoLocation">
     <xs:annotation>
-      <xs:documentation>Geo location contains longitude and latitude coordinates. Can contain an additional textual descripton of the location.</xs:documentation>
+      <xs:documentation>
+        <![CDATA[
+        Geo location contains longitude and latitude coordinates.
+        Can contain an additional textual descripton of the location.
+        ]]>
+      </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -69,7 +89,11 @@
 
   <xs:complexType name="license">
     <xs:annotation>
-      <xs:documentation>License contains the name of the license and also a link to the license text.</xs:documentation>
+      <xs:documentation>
+        <![CDATA[
+        License contains the name of the license and also a link to the license text.
+        ]]>
+      </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="mandatoryString">
@@ -81,7 +105,14 @@
   <!-- Gallery -->
   <xs:element name="gallery">
     <xs:complexType>
-      <xs:sequence>
+      <xs:all>
+        <!-- Gallery's name -->
+        <xs:element name="title" type="title" minOccurs="0" />
+        <!-- Gallery's author -->
+        <xs:element name="author" type="mandatoryString" minOccurs="0" />
+        <!-- Gallery's license -->
+        <xs:element name="license" type="license" minOccurs="0" />
+
         <!-- Defining the list of albums -->
         <xs:element name="albums">
           <xs:complexType>
@@ -91,33 +122,35 @@
                   <xs:complexType>
                     <xs:all>
                       <!-- Album's name -->
-                      <xs:element name="name" type="xs:Name"/> <!-- End of name -->
+                      <xs:element name="name" type="xs:Name"/>
                       <!-- Album's title -->
-                      <xs:element name="title" type="title" /> <!-- End of title -->
+                      <xs:element name="title" type="title" />
                       <!-- Album's description -->
-                      <xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
+                      <xs:element name="description" minOccurs="0" type="description" />
                       <!-- Album's timestamp -->
                       <xs:element name="timestamp" type="xs:dateTime" />
                       <!-- Album's author -->
                       <xs:element name="author" type="mandatoryString" minOccurs="0" />
                       <!-- Album's license -->
                       <xs:element name="license" type="license" minOccurs="0" />
-                      <!-- Image path for the thumbnail -->
+                      <!-- Image path for the album thumbnail -->
                       <xs:element name="thumbnail" type="imageResource" minOccurs="0" />
+                      <!-- Album's tags -->
+                      <xs:element name="tags" minOccurs="0" type="tags" />
 
                       <!-- Images -->
-                      <xs:element name="images">
+                      <xs:element name="images" minOccurs="0">
                         <xs:complexType>
                           <xs:sequence>
                             <xs:element name="image">
                               <xs:complexType>
                                 <xs:all>
                                   <!-- Image's name -->
-                                  <xs:element name="name" type="xs:Name" /> <!-- End of name -->
+                                  <xs:element name="name" type="xs:Name" />
                                   <!-- Images's title -->
-                                  <xs:element name="title" type="title" /> <!-- End of title -->
+                                  <xs:element name="title" type="title" />
                                   <!-- Images's description -->
-                                  <xs:element name="description" minOccurs="0" type="description" /> <!-- End of description -->
+                                  <xs:element name="description" minOccurs="0" type="description" />
                                   <!-- Image's likes -->
                                   <xs:element name="likes" type="likes" minOccurs="0" />
                                   <!-- Full image path -->
@@ -134,6 +167,8 @@
                                   <xs:element name="location" minOccurs="0" type="geoLocation" />
                                   <!-- Image's tags -->
                                   <xs:element name="tags" minOccurs="0" type="tags" />
+                                  <!-- Comments -->
+                                  <xs:element name="comments" minOccurs="0" type="comments" />
                                 </xs:all>
                               </xs:complexType>
                             </xs:element>
@@ -148,7 +183,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-      </xs:sequence>
+      </xs:all>
     </xs:complexType>
   </xs:element>
 </xs:schema>
